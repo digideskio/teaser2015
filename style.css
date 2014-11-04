@@ -1,0 +1,171 @@
+html, body {
+	background-color: black;
+	font-family: 'Orbitron', sans-serif;
+	height: 100%;
+	color: white;
+	font-size: 16px;
+}
+
+a, a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+}
+
+p {
+	margin-bottom: 30px;
+}
+
+#content-wrapper {
+	background-position: center top;
+    background-size: 150% auto;
+    background-repeat: no-repeat;
+
+    height: 100%;
+}
+
+#content-wrapper.space {
+	background-image: url('img/space.jpg');
+}
+
+#content-wrapper.spacemen {
+	background-image: url('img/spacemen.jpg');
+	background-position: 60% top;
+}
+
+@media (min-width: 768px) {
+	#content-wrapper {
+		background-size: 100% auto;
+	}
+
+	#content-wrapper.spacemen {
+		background-position: center top;
+	}
+
+	#pointer-mukaan {
+		left: -5%;
+	}
+
+	#pointer-aloitus {
+		left: 5%;
+	}
+}
+
+.text-bg-wrapper {
+	display: table;
+	position: relative;
+	width: 100%;
+}
+
+.text-bg {
+	background-color: rgba(3,7,15,0.5);
+}
+
+#pointer-wrapper .text-bg {
+	position: absolute;
+	width: 100%;
+	height: 15%;
+	top: 30%;
+}
+
+#pointer-tule-tanne {
+	margin-bottom: 10px;
+}
+
+#pointer-tule-tanne img {
+	width: 145px;
+}
+
+.pointer-text {
+	position: relative;
+	font-size: 14px;
+	color: white;
+}
+
+.pointer-text .red {
+	color: #a32116;
+}
+
+.pointer-text.tule-tanne {
+	left: 35px;
+	top: 2px;
+}
+
+.star {
+	display:none;
+	border-radius: 50%;
+	position: absolute;
+	width: 6%;
+	height: 13%;
+	background-color: #a32116;
+}
+
+/*
+a:hover .star {
+	display:block;
+}
+
+a.active .star {
+	display:block;
+	background-color: #c2271a;
+}
+*/
+
+#pointer-tule-tanne .star {
+	width: 11px;
+	height: 11px;
+	top: 16px;
+	left: 14px;
+}
+
+#pointer-speksi .star {
+	top: 84%;
+	left: 64%;
+}
+
+#pointer-mukaan .star {
+	top: 84%;
+	left: 29%;
+}
+
+#pointer-aloitus .star {
+	top: 1%;
+	left: 85%;
+}
+
+#pointer-yhdistys .star {
+	top: 1%;
+	left: 80%;
+}
+
+.page-top-margin {
+	margin-top: 30px;
+}
+
+#eye-wrapper {
+	margin-bottom: 20px;
+}
+
+#title {
+	margin-bottom: 50px;
+}
+
+#title2 img {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	#title2 img {
+		margin-left: 5%;
+		width: 35%;
+	}
+}
+
+#text-container {
+	margin-top: 30px;
+	padding: 30px 30px 0px 30px;
+}
+

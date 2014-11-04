@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Teekkarispeksi 2015 teaser</title>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="jquery.preload.js"></script>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style.css">
+
+		<script>
+			$(document).ready(function() {
+
+				var randomBlinking = false
+
+				var images = [
+					'img/blink_1_b.jpg',
+					'img/blink_2_b.jpg',
+					'img/blink_3_b.jpg',
+					'img/blink_4_b.jpg']
+
+				var currentImage
+
+				function getBlinkTimeout() {
+					return (Math.random()*20 + 5)*1000
+				}
+
+				function blink() {
+					// Restart animation
+					currentImage = 0
+					window.requestAnimationFrame(redraw)
+					if (randomBlinking)
+						setTimeout(blink, getBlinkTimeout())
+				}
+
+				function getImage(i) {
+					var frame
+
+					if (i >= images.length)
+						frame = images[2*images.length - 1 - i]
+					else frame = images[currentImage]
+
+					return frame
+				}
+
+				function redraw() {
+					var image = getImage(currentImage)
+					console.log("Setting img src to "+image+", currentImage = "+currentImage)
+					$("#eye-wrapper img").attr("src",image)
+
+					if (currentImage++ < 2*images.length - 1)
+						window.requestAnimationFrame(redraw)
+				}
+
+				$.preload(images, 1, function(last){
+					for (var i = 0; i < this.length; i++) {
+						console.log("Loaded "+this[i])
+					}
+					if (last && randomBlinking) {
+						setTimeout(blink, getBlinkTimeout())
+					}
+				})
+
+				if (!randomBlinking)
+					$("#eye-wrapper").hover(blink, function() {})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="content-wrapper" class="space col-sm-offset-1 col-sm-10 col-lg-offset-2 col-lg-8">
+
+			<a href="inner.html">
+				<div id="pointer-wrapper" class="text-bg text-bg-wrapper page-top-margin">
+					<div class="pointer-text tule-tanne col-xs-offset-6 col-xs-6 col-sm-offset-8 col-sm-2">
+						TULE&nbsp;<span class="red">TÄNNE</span>
+					</div>
+				</div>
+				<div id="pointer-tule-tanne" class="pointer pointer-tule-tanne col-xs-offset-6 col-xs-6 col-sm-offset-8 col-sm-2">
+					<div class="star"></div>
+					<img src="img/pointer-tule-tanne.png" alt="Tule tänne" />
+				</div>
+			</a>
+			<div id="eye-wrapper" class="col-sm-offset-2 col-sm-8">
+				<img src="img/blink_1_b.jpg" alt="Silmä" />
+			</div>
+			<div id="title" class="text-bg text-bg-wrapper">
+				<img class="col-sm-offset-1 col-sm-10" src="img/title_nobg.png" alt="Teekkarispeksi 2015" />
+			</div>
+		</div>
+	</body>
+</html>

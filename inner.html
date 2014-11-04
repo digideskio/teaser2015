@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fi">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Teekkarispeksi 2015 teaser</title>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style.css">
+
+		<script>
+		$(document).ready(function() {
+			$(".text-link").click(function(e) {
+				$(".text-link.active").removeClass("active")
+				$(this).addClass("active")
+
+				var target = $(this).data("target")
+				$(".text-content").hide()
+				$("#"+target).show()
+			})
+		})
+		</script>
+
+	</head>
+	<body>
+		<div id="content-wrapper" class="spacemen col-lg-offset-1 col-lg-10">
+
+			<div id="title2" class="text-bg page-top-margin">
+				<img src="img/title_nobg.png" alt="Teekkarispeksi 2015" />
+			</div>
+
+			<div id="pointer-wrapper" class="text-bg-wrapper">
+				<div class="text-bg"></div>
+				<div class="nav-pointers col-sm-offset-1 col-sm-10">
+					<a href="#" data-target="text-speksi" class="active text-link">
+						<div id="pointer-speksi" class="col-xs-6 col-sm-3">
+							<div class="star"></div>
+							<img src="img/pointer-speksi.png" alt="Speksi" />
+						</div>
+					</a>
+					<a href="#" data-target="text-mukaan" class="text-link">
+						<div id="pointer-mukaan" class="col-xs-6 col-sm-3">
+							<div class="star"></div>
+							<img src="img/pointer-toimintaan.png" alt="Toimintaan" />
+						</div>
+					</a>
+					<a href="index.html">
+						<div id="pointer-aloitus" class="col-xs-6 col-sm-3">
+							<div class="star"></div>
+							<img src="img/pointer-aloitus.png" alt="Aloitussivulle" />
+						</div>
+					</a>
+					<a href="http://www.teekkarispeksi.fi">
+						<div id="pointer-yhdistys" class="col-xs-6 col-sm-3">
+							<div class="star"></div>
+							<img src="img/pointer-yhdistys.png" alt="Yhdistyksen sivuille" />
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div id="text-container" class="text-bg col-sm-offset-1 col-sm-8">
+				<div id="text-speksi" class="text-content">
+					<p>Tämä on malliteksti. Tässä voisi lukea jotain hyvää  tietoa produktiosta, 
+					mutta tässä ei lue mitään tärkeää. Tätä tekstiä ei kannata edes vaivautua 
+					lukemaan.</p>
+
+					<p>Tässä toisessakaan kappaleessa ei lue mitään ihmeellistä. Tässä 
+					todennäköisesti voisi olla kerrottu, että milloin lippukauppa aukeaa oikeasti. </p>
+
+					<p>Se voisi olla sitä oleellista tietoa.</p>
+
+					<p>Tämän tekstin ideana on vain nähdä, että miltä fontti näyttää. Voisihan
+					 tässä lukea jotain liirumlaarumia. Ei tässä nyt lue.</p>
+
+					<p>Teekkarispeksi jee, hieno yhdistys on.</p>
+				</div>
+				<div id="text-mukaan" style="display:none" class="text-content">
+					<p>Mukaan-teksti</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
