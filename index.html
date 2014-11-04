@@ -26,12 +26,26 @@
 					'img/blink_4_b.jpg']
 
 				var currentImage
+				var previousBlinkTime = 0
+				var blinkThreshold = 300
+				var $frames
 
 				function getBlinkTimeout() {
 					return (Math.random()*20 + 5)*1000
 				}
 
 				function blink() {
+					if (!$frames || new Date().getTime() - previousBlinkTime < blinkThreshold)
+						return
+
+					previousBlinkTime = new Date().getTime()
+
+					// Position the images on top of the static image
+					$frames.css("top", $("#eye-wrapper img").offset().top)
+					$frames.css("left", $("#eye-wrapper img").offset().left)
+					$frames.css("width", $("#eye-wrapper img").width()+"px")
+					$frames.css("height", $("#eye-wrapper img").height()+"px")
+
 					// Restart animation
 					currentImage = 0
 					window.requestAnimationFrame(redraw)
@@ -39,20 +53,15 @@
 						setTimeout(blink, getBlinkTimeout())
 				}
 
-				function getImage(i) {
-					var frame
-
-					if (i >= images.length)
-						frame = images[2*images.length - 1 - i]
-					else frame = images[currentImage]
-
-					return frame
-				}
-
 				function redraw() {
-					var image = getImage(currentImage)
-					console.log("Setting img src to "+image+", currentImage = "+currentImage)
-					$("#eye-wrapper img").attr("src",image)
+					if (currentImage < images.length) {
+						console.log("Showing frame "+currentImage)
+						$frames[currentImage].style.display = 'inline'
+					}
+					else { 
+						console.log("Hiding frame "+(2*images.length - currentImage))
+						$frames[Math.max(0, 2*images.length - currentImage - 1)].style.display = 'none'
+					}
 
 					if (currentImage++ < 2*images.length - 1)
 						window.requestAnimationFrame(redraw)
@@ -61,14 +70,22 @@
 				$.preload(images, 1, function(last){
 					for (var i = 0; i < this.length; i++) {
 						console.log("Loaded "+this[i])
+						// Preloading doesn't seem to work well in Safari.
+						// Insert hidden images to the DOM as a workaround
+						$("body").append('<img class="animation-frame" src="'+this[i]+'" style="z-index:'+images.indexOf(this[i])+'"/>')
 					}
-					if (last && randomBlinking) {
-						setTimeout(blink, getBlinkTimeout())
+					if (last) {
+						$frames = $(".animation-frame")
+
+						if (randomBlinking)
+							setTimeout(blink, getBlinkTimeout())
 					}
 				})
 
-				if (!randomBlinking)
-					$("#eye-wrapper").hover(blink, function() {})
+				if (!randomBlinking) {
+					$("#eye-wrapper").mouseenter(blink)
+					$("#eye-wrapper").click(blink)
+				}
 			})
 		</script>
 	</head>

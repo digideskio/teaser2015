@@ -149,6 +149,11 @@ a.active .star {
 	margin-bottom: 20px;
 }
 
+.animation-frame {
+	position: absolute;
+	display: none;
+}
+
 #title {
 	margin-bottom: 50px;
 }
