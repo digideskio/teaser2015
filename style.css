@@ -44,14 +44,6 @@ p {
 	#content-wrapper.spacemen {
 		background-position: center top;
 	}
-
-	#pointer-mukaan {
-		left: -5%;
-	}
-
-	#pointer-aloitus {
-		left: 5%;
-	}
 }
 
 .text-bg-wrapper {
@@ -79,14 +71,22 @@ p {
 	width: 145px;
 }
 
+#pointer-yhdistys {
+	left: -5%;
+}
+
 .pointer-text {
 	position: relative;
 	font-size: 14px;
 	color: white;
 }
 
-.pointer-text .red {
-	color: #a32116;
+.red {
+	color: #ff5e28;
+}
+
+.copper {
+	color: #ff9965;
 }
 
 .pointer-text.tule-tanne {
@@ -101,44 +101,6 @@ p {
 	width: 6%;
 	height: 13%;
 	background-color: #a32116;
-}
-
-/*
-a:hover .star {
-	display:block;
-}
-
-a.active .star {
-	display:block;
-	background-color: #c2271a;
-}
-*/
-
-#pointer-tule-tanne .star {
-	width: 11px;
-	height: 11px;
-	top: 16px;
-	left: 14px;
-}
-
-#pointer-speksi .star {
-	top: 84%;
-	left: 64%;
-}
-
-#pointer-mukaan .star {
-	top: 84%;
-	left: 29%;
-}
-
-#pointer-aloitus .star {
-	top: 1%;
-	left: 85%;
-}
-
-#pointer-yhdistys .star {
-	top: 1%;
-	left: 80%;
 }
 
 .page-top-margin {
@@ -174,3 +136,58 @@ a.active .star {
 	padding: 30px 30px 0px 30px;
 }
 
+form {
+	max-width: 50%;
+}
+
+form input, form textarea {
+	margin-bottom: 5px;
+}
+
+.btn-red {
+  background-color: #ff5e28;
+  border-color: #ff5e28;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #fb5118;
+  background-image: -moz-linear-gradient(top,#ff5e28,#f43d00);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(#ff5e28),to(#f43d00));
+  background-image: -webkit-linear-gradient(top,#ff5e28,#f43d00);
+  background-image: -o-linear-gradient(top,#ff5e28,#f43d00);
+  background-image: linear-gradient(to bottom,#ff5e28,#f43d00);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff5e28', endColorstr='#fff33d00', GradientType=0);
+  border-color: #f43d00 #f43d00 #a82a00;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+.btn-red:hover,
+.btn-red:focus {
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position .1s linear;
+  -moz-transition: background-position .1s linear;
+  -o-transition: background-position .1s linear;
+  transition: background-position .1s linear;
+}
+.btn-red:hover,
+.btn-red:focus {
+  color: white;
+  background-color: #f43d00;
+}
+.btn-red:active,
+.btn-red.active,
+.btn-red.active:hover {
+  background-color: #ff4b0f;
+  border-color: #f43d00;
+}
+.btn-red.disabled:hover,
+.btn-red.disabled:focus,
+.btn-red.disabled:active,
+.btn-red.disabled.active,
+.btn-red[disabled] .btn-red:hover,
+.btn-red[disabled] .btn-red:focus,
+.btn-red[disabled] .btn-red:active,
+.btn-red[disabled] .btn-red.active {
+  background-color: #ff5e28;
+  border-color: #ff5e28;
+}

@@ -23,6 +23,24 @@
 				$(".text-content").hide()
 				$("#"+target).show()
 			})
+
+			$("form").submit(function(e) {
+				var $f = $(this)
+				$.ajax({
+					url: $f.attr("action"),
+					type: $f.attr("method"),
+					data: $f.serialize(),
+					success: function() {
+						$f.hide()
+						$f.parent().find(".success-message").show()
+					},
+					error: function() {
+						alert("Lähetyksessä tapahtui virhe!")
+					}
+				})
+				e.preventDefault()
+				return false
+			})
 		})
 		</script>
 
@@ -39,25 +57,16 @@
 				<div class="nav-pointers col-sm-offset-1 col-sm-10">
 					<a href="#" data-target="text-speksi" class="active text-link">
 						<div id="pointer-speksi" class="col-xs-6 col-sm-3">
-							<div class="star"></div>
 							<img src="img/pointer-speksi.png" alt="Speksi" />
 						</div>
 					</a>
 					<a href="#" data-target="text-mukaan" class="text-link">
 						<div id="pointer-mukaan" class="col-xs-6 col-sm-3">
-							<div class="star"></div>
 							<img src="img/pointer-toimintaan.png" alt="Toimintaan" />
-						</div>
-					</a>
-					<a href="index.html">
-						<div id="pointer-aloitus" class="col-xs-6 col-sm-3">
-							<div class="star"></div>
-							<img src="img/pointer-aloitus.png" alt="Aloitussivulle" />
 						</div>
 					</a>
 					<a href="http://www.teekkarispeksi.fi">
 						<div id="pointer-yhdistys" class="col-xs-6 col-sm-3">
-							<div class="star"></div>
 							<img src="img/pointer-yhdistys.png" alt="Yhdistyksen sivuille" />
 						</div>
 					</a>
@@ -66,22 +75,48 @@
 
 			<div id="text-container" class="text-bg col-sm-offset-1 col-sm-8">
 				<div id="text-speksi" class="text-content">
-					<p>Tämä on malliteksti. Tässä voisi lukea jotain hyvää  tietoa produktiosta, 
-					mutta tässä ei lue mitään tärkeää. Tätä tekstiä ei kannata edes vaivautua 
-					lukemaan.</p>
+					<p class="copper">Hyytävässä avaruudessa kulkee muutakin kuin aurinkotuulen viima. Tähtien kajossa jokainen päättää yksin, mikä on aidosti tärkeää.</p>
 
-					<p>Tässä toisessakaan kappaleessa ei lue mitään ihmeellistä. Tässä 
-					todennäköisesti voisi olla kerrottu, että milloin lippukauppa aukeaa oikeasti. </p>
+					<p class="copper">Murskaako kunnianhimo perhesuhteet? Valtataistelu ratkaistaan nyt.</p>
 
-					<p>Se voisi olla sitä oleellista tietoa.</p>
+					<p class="copper">Teatterissa joku kuulee huutosi.</p>
 
-					<p>Tämän tekstin ideana on vain nähdä, että miltä fontti näyttää. Voisihan
-					 tässä lukea jotain liirumlaarumia. Ei tässä nyt lue.</p>
+					<p>Kevään 2015 Teekkarispeksin aihe julkistetaan ja lipunmyynti alkaa 1.12.2014. Ensi-ilta maaliskuussa, näytökset pääkaupunkiseudun lisäksi Tampereella, Turussa, Vaasassa ja Kuopiossa.</p>
 
-					<p>Teekkarispeksi jee, hieno yhdistys on.</p>
+					<p><i>Haluan muistutuksen lipunmyynnin alkamisesta sähköpostiini:</i></p>
+					
+					<p>
+						<form action="email" method="POST">
+							<div id="email-group" class="input-group">
+								<input type="email" placeholder="Sähköpostiosoite" class="form-control" required>
+								<span class="input-group-btn">
+									<button class="btn btn-red">Lähetä</button>
+								</span>
+							</div>
+						</form>
+						<div class="success-message copper" style="display:none">
+							Kiitos, tietosi on vastaanotettu.
+						</div>
+					</p>
+
 				</div>
 				<div id="text-mukaan" style="display:none" class="text-content">
-					<p>Mukaan-teksti</p>
+					<p>Produktio on jo täydessä vauhdissa, mutta mukaan tarvitaan edelleen innokkaita tekijöitä. Lähde mukaan näyttämään taitosi tai oppimaan jotain ihan uutta!</p>
+
+					<p>Haasta itsesi puvustuksessa, lavastuksessa, rekvisiitassa, maskeerauksessa, dokumentoinnissa, koreografioinnissa, markkinoinnissa, yritysyhteistyössä tai hupitiimissä.</p>
+
+					<p class="copper">Täytä lomakkeeseen yhteystietosi ja kiinnostuksesi, niin otamme yhteyttä mahdollisimman pian.</p>
+
+					<p>
+						<form action="mukaan" method="POST">
+							<input type="email" placeholder="Sähköpostiosoite" class="form-control" required>
+							<textarea placeholder="Kiinnostuksen kohteet" class="form-control" required></textarea>
+							<button class="btn btn-red">Lähetä</button>
+						</form>
+						<div class="success-message copper" style="display:none">
+							Kiitos, tietosi on vastaanotettu.
+						</div>
+					</p>
 				</div>
 			</div>
 		</div>
