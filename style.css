@@ -11,6 +11,10 @@ a, a:hover {
 	text-decoration: none;
 }
 
+a:hover {
+	opacity: 0.9;
+}
+
 img {
 	width: 100%;
 }
