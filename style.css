@@ -143,12 +143,12 @@ p, form, .success-message {
 	line-height: 1.5em;
 }
 
-form {
-	max-width: 50%;
-}
-
 form input, form textarea {
 	margin-bottom: 5px;
+}
+
+form textarea {
+	min-height: 7em;
 }
 
 .form-title {

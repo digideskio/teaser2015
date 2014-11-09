@@ -86,9 +86,9 @@
 					<div class="form-title">
 						Haluan muistutuksen lipunmyynnin alkamisesta sähköpostiini:
 					</div>
-					<form action="email" method="POST">
+					<form action="send.php" method="POST" class="col-sm-8">
 						<div id="email-group" class="input-group">
-							<input type="email" placeholder="Sähköpostiosoite" class="form-control" required>
+							<input name="email" type="email" placeholder="Sähköposti" class="form-control" required>
 							<span class="input-group-btn">
 								<button class="btn btn-red">Lähetä</button>
 							</span>
@@ -107,9 +107,10 @@
 					<p class="copper">Täytä lomakkeeseen yhteystietosi ja kiinnostuksesi, niin otamme yhteyttä mahdollisimman pian.</p>
 
 					<p>
-						<form action="mukaan" method="POST">
-							<input type="email" placeholder="Sähköpostiosoite" class="form-control" required>
-							<textarea placeholder="Kiinnostuksen kohteet" class="form-control" required></textarea>
+						<form action="send.php" method="POST" class="col-sm-8">
+							<input name="name" type="text" placeholder="Nimi" class="form-control" required>
+							<input name="email" type="email" placeholder="Sähköposti" class="form-control" required>
+							<textarea name="interest" placeholder="Kiinnostuksen kohteet" class="form-control" required></textarea>
 							<button class="btn btn-red">Lähetä</button>
 						</form>
 						<div class="success-message copper" style="display:none">
