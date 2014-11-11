@@ -1,4 +1,4 @@
 <?php
 $msg = $_POST["email"];
-mail("ilona.kuusela@gmail.com", "[speksi-teaser] Haluan muistutuksen", $msg);
+mail("pihla.melander@teekkarispeksi.fi, essi.puustinen@aalto.fi", "[speksi-teaser] Haluan muistutuksen lipunmyynnin alkamisesta", $msg);
 ?>
