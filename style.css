@@ -143,6 +143,10 @@ p, form, .success-message {
 	line-height: 1.5em;
 }
 
+form {
+	padding-left: 0px !important;
+}
+
 form input, form textarea {
 	margin-bottom: 5px;
 }
