@@ -112,16 +112,6 @@ p, form, .success-message {
 		font-size: 12px;
 	}
 
-#pointer-tule-tanne {
-	margin-bottom: 10px;
-}
-
-#pointer-tule-tanne img {
-	width: 145px;
-}
-
-
-
 /* nav hover */
 
 .nav-pointers a:hover {
@@ -143,31 +133,8 @@ p, form, .success-message {
 	color: #ff9965;
 }
 
-.pointer-text.tule-tanne {
-	left: 35px;
-	top: 2px;
-}
-
-.star {
-	display:none;
-	border-radius: 50%;
-	position: absolute;
-	width: 6%;
-	height: 13%;
-	background-color: #a32116;
-}
-
 .page-top-margin {
 	margin-top: 30px;
-}
-
-#eye-wrapper {
-	margin-bottom: 35px;
-}
-
-.animation-frame {
-	position: absolute;
-	display: none;
 }
 
 #title {

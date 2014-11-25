@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Teekkarispeksi 2015 teaser</title>
 		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="jquery.preload.js"></script>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
@@ -15,99 +14,137 @@
 		<link rel="stylesheet" href="style.css">
 
 		<script>
-			$(document).ready(function() {
+		$(document).ready(function() {
+			$(".text-link").click(function(e) {
+				$(".text-link.active").removeClass("active")
+				$(this).addClass("active")
 
-				var randomBlinking = false
+				var target = $(this).data("target")
+				$(".active-text").fadeOut(100, function() {
+						$("#"+target).fadeIn(1000)
+						$(".text-content").removeClass("active-text")
+						$("#"+target).addClass("active-text")
+				});
+				return false;
+			})
 
-				var images = [
-					'img/blink_1_b.jpg',
-					'img/blink_2_b.jpg',
-					'img/blink_3_b.jpg',
-					'img/blink_4_b.jpg']
-
-				var currentImage
-				var previousBlinkTime = 0
-				var blinkThreshold = 500
-				var $frames
-
-				function getBlinkTimeout() {
-					return (Math.random()*20 + 5)*1000
-				}
-
-				function blink() {
-					if (!$frames || new Date().getTime() - previousBlinkTime < blinkThreshold)
-						return
-
-					previousBlinkTime = new Date().getTime()
-
-					// Position the images on top of the static image
-					$frames.css("top", $("#eye-wrapper img").offset().top)
-					$frames.css("left", $("#eye-wrapper img").offset().left)
-					$frames.css("width", $("#eye-wrapper img").width()+"px")
-					$frames.css("height", $("#eye-wrapper img").height()+"px")
-
-					// Restart animation
-					currentImage = 0
-					window.requestAnimationFrame(redraw)
-					if (randomBlinking)
-						setTimeout(blink, getBlinkTimeout())
-				}
-
-				function redraw() {
-					if (currentImage < images.length) {
-						console.log("Showing frame "+currentImage)
-						$frames[currentImage].style.display = 'inline'
-					}
-					else { 
-						console.log("Hiding frame "+(2*images.length - currentImage))
-						$frames[Math.max(0, 2*images.length - currentImage - 1)].style.display = 'none'
-					}
-
-					if (currentImage++ < 2*images.length - 1)
-						window.requestAnimationFrame(redraw)
-				}
-
-				$.preload(images, 1, function(last){
-					for (var i = 0; i < this.length; i++) {
-						console.log("Loaded "+this[i])
-						// Preloading doesn't seem to work well in Safari.
-						// Insert hidden images to the DOM as a workaround
-						$("body").append('<img class="animation-frame" src="'+this[i]+'" style="z-index:'+images.indexOf(this[i])+'"/>')
-					}
-					if (last) {
-						$frames = $(".animation-frame")
-
-						if (randomBlinking)
-							setTimeout(blink, getBlinkTimeout())
+			$("form").submit(function(e) {
+				var $f = $(this)
+				$.ajax({
+					url: $f.attr("action"),
+					type: $f.attr("method"),
+					data: $f.serialize(),
+					success: function() {
+						$f.hide()
+						$f.parent().find(".success-message").show()
+					},
+					error: function() {
+						alert("L&auml;hetyksess&auml; tapahtui virhe!")
 					}
 				})
-
-				if (!randomBlinking) {
-					$("#eye-wrapper").mouseenter(blink)
-					$("#eye-wrapper").click(blink)
-				}
+				e.preventDefault()
+				return false
 			})
+		})
 		</script>
+
 	</head>
 	<body>
-		<div id="content-wrapper" class="space col-sm-offset-1 col-sm-10 col-lg-offset-2 col-lg-8">
+		<div class="fading-bg"></div>
+		<div class="eye"></div>
 
-			<a href="inner.html">
-				<div id="pointer-wrapper" class="text-bg text-bg-wrapper page-top-margin">
-					<div class="pointer-text tule-tanne col-xs-offset-6 col-xs-6 col-sm-offset-8 col-sm-2">
-						TULE&nbsp;<span class="red">T&Auml;NNE</span>
-					</div>
-				</div>
-				<div id="pointer-tule-tanne" class="pointer pointer-tule-tanne col-xs-offset-6 col-xs-6 col-sm-offset-8 col-sm-2">
-					<div class="star"></div>
-					<img src="img/pointer-tule-tanne.png" alt="Tule t&auml;nne" />
-				</div>
-			</a>
-			<div id="eye-wrapper" class="col-sm-offset-2 col-sm-8">
-				<img src="img/blink_1_b.jpg" alt="Silm&auml;" />
+		<div id="content-wrapper" class="spacemen col-lg-offset-1 col-lg-10">
+
+			<div id="title2" class="page-top-margin">
+				<a href="index.html"><img src="img/title_nobg.png" alt="Teekkarispeksi 2015" /></a>
 			</div>
-			<div id="title" class="text-bg text-bg-wrapper">
-				<a href="inner.html"><img class="col-sm-offset-1 col-sm-10" src="img/title_nobg.png" alt="Teekkarispeksi 2015" /></a>
+
+			<div id="pointer-wrapper" class="text-bg-wrapper">
+				<div class="nav-pointers col-sm-offset-1 col-sm-10">
+					<a href="#" data-target="text-speksi" class="active text-link">
+						Produktio
+						<div class="pointer-lines">
+							<svg width="130" height="50">
+								<polyline points = "0,0 120,0 110,40"/>
+								<circle class="shape" r="6" cx="110" cy="40"></circle>
+							</svg>
+						</div>
+					</a>
+					<a href="/kauppa">
+						Liput
+						<div class="pointer-lines">
+							<svg width="70" height="50">
+								<polyline points = "70,0 0,0 30,30"/>
+								<circle class="shape" r="6" cx="30" cy="30"></circle>
+							</svg>
+						</div>
+					</a>
+					<a href="#" data-target="text-mukaan" class="text-link">
+						Tekijät
+						<div class="pointer-lines">
+							<svg width="120" height="60">
+								<polyline points = "0,0 90,0 110,35"/>
+								<circle class="shape" r="6" cx="110" cy="35"></circle>
+							</svg>
+						</div>
+					</a>
+					<a href="http://www.teekkarispeksi.fi/speksi" class="yhdistys">
+						Yhdistys
+						<div class="pointer-lines">
+							<svg width="160" height="60" style="position: relative; top:-50px;">
+								<polyline points = "0,50 110,50 95,10"/>
+								<circle class="shape" r="5" cx="95" cy="10"></circle>
+							</svg>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div id="text-container" class="text-bg col-sm-offset-1 col-sm-8 col-md-7">
+				<div id="text-speksi" class="text-content active-text">
+					<p class="copper">Hyyt&auml;v&auml;ss&auml; avaruudessa kulkee muutakin kuin aurinkotuulen viima. T&auml;htien kajossa jokainen p&auml;&auml;tt&auml;&auml; yksin, mik&auml; on aidosti t&auml;rke&auml;&auml;.</p>
+
+					<p class="copper">Murskaako kunnianhimo perhesuhteet? Valtataistelu ratkaistaan nyt.</p>
+
+					<p class="copper">Teatterissa joku kuulee huutosi.</p>
+
+					<p>Kev&auml;&auml;n 2015 Teekkarispeksin aihe julkistetaan ja lipunmyynti alkaa 1.12.2014. Ensi-ilta on maaliskuussa, ja n&auml;yt&ouml;ksi&auml; on p&auml;&auml;kaupunkiseudun lis&auml;ksi Tampereella, Turussa, Vaasassa ja Kuopiossa.</p>
+
+					<div class="form-title">
+						Haluan muistutuksen lipunmyynnin alkamisesta s&auml;hk&ouml;postiini:
+					</div>
+					<form action="send.php" method="POST" class="col-sm-8">
+						<div id="email-group" class="input-group">
+							<input name="email" type="email" placeholder="S&auml;hk&ouml;posti" class="form-control" required>
+							<span class="input-group-btn">
+								<button class="btn btn-red">L&auml;het&auml;</button>
+							</span>
+						</div>
+					</form>
+					<div class="success-message copper" style="display:none">
+						Kiitos, tietosi on vastaanotettu.
+					</div>
+
+				</div>
+				<div id="text-mukaan" class="text-content">
+					<p>Produktio on jo t&auml;ydess&auml; vauhdissa, mutta mukaan tarvitaan edelleen innokkaita tekij&ouml;it&auml;. L&auml;hde mukaan n&auml;ytt&auml;m&auml;&auml;n taitosi tai oppimaan jotain ihan uutta!</p>
+
+					<p>Haasta itsesi puvustuksessa, lavastuksessa, rekvisiitassa, maskeerauksessa, dokumentoinnissa, sovituksessa, koreografioinnissa, markkinoinnissa, yritysyhteisty&ouml;ss&auml; tai hupitiimiss&auml;.</p>
+
+					<p class="copper">T&auml;yt&auml; lomakkeeseen yhteystietosi ja kiinnostuksesi, niin otamme yhteytt&auml; mahdollisimman pian.</p>
+
+					<p>
+						<form action="send2.php" method="POST" class="col-sm-8">
+							<input name="name" type="text" placeholder="Nimi" class="form-control" required>
+							<input name="email" type="email" placeholder="S&auml;hk&ouml;posti" class="form-control" required>
+							<textarea name="interest" placeholder="Kiinnostuksen kohteet" class="form-control" required></textarea>
+							<button class="btn btn-red">L&auml;het&auml;</button>
+						</form>
+						<div class="success-message copper" style="display:none">
+							Kiitos, tietosi on vastaanotettu.
+						</div>
+					</p>
+				</div>
 			</div>
 		</div>
 	</body>
