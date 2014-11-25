@@ -188,6 +188,13 @@ p, form, .success-message {
 	line-height: 1.5em;
 }
 
+.text-content {
+	display: none;
+}
+.active-text {
+	display: block;
+}
+
 form {
 	padding-left: 0px !important;
 }

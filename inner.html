@@ -20,8 +20,12 @@
 				$(this).addClass("active")
 
 				var target = $(this).data("target")
-				$(".text-content").hide()
-				$("#"+target).show()
+				$(".active-text").fadeOut(100, function() {
+						$("#"+target).fadeIn(1000)
+						$(".text-content").removeClass("active-text")
+						$("#"+target).addClass("active-text")
+				});
+				return false;
 			})
 
 			$("form").submit(function(e) {
@@ -97,7 +101,7 @@
 			</div>
 
 			<div id="text-container" class="text-bg col-sm-offset-1 col-sm-8 col-md-7">
-				<div id="text-speksi" class="text-content">
+				<div id="text-speksi" class="text-content active-text">
 					<p class="copper">Hyyt&auml;v&auml;ss&auml; avaruudessa kulkee muutakin kuin aurinkotuulen viima. T&auml;htien kajossa jokainen p&auml;&auml;tt&auml;&auml; yksin, mik&auml; on aidosti t&auml;rke&auml;&auml;.</p>
 
 					<p class="copper">Murskaako kunnianhimo perhesuhteet? Valtataistelu ratkaistaan nyt.</p>
@@ -122,7 +126,7 @@
 					</div>
 
 				</div>
-				<div id="text-mukaan" style="display:none" class="text-content">
+				<div id="text-mukaan" class="text-content">
 					<p>Produktio on jo t&auml;ydess&auml; vauhdissa, mutta mukaan tarvitaan edelleen innokkaita tekij&ouml;it&auml;. L&auml;hde mukaan n&auml;ytt&auml;m&auml;&auml;n taitosi tai oppimaan jotain ihan uutta!</p>
 
 					<p>Haasta itsesi puvustuksessa, lavastuksessa, rekvisiitassa, maskeerauksessa, dokumentoinnissa, sovituksessa, koreografioinnissa, markkinoinnissa, yritysyhteisty&ouml;ss&auml; tai hupitiimiss&auml;.</p>
