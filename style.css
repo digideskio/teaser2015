@@ -107,21 +107,24 @@ p, form, .success-message {
 		fill: #ff6533;
 	}
 
-	.yhdistys {
-		color: #f4602f;
-		font-size: 12px;
+/* active */
+.nav-pointers a.active {
+
+}
+	.nav-pointers .active .pointer-lines svg polyline {
+		stroke: #ff6533;
 	}
 
 /* nav hover */
 
 .nav-pointers a:hover {
-	/*color: #f00;*/
+	color: #ff6533;
 }
 	.nav-pointers a:hover .pointer-lines svg polyline {
-		/*stroke: #f00;*/
+		/*stroke: #ff6533;*/
 	}
 	.nav-pointers a:hover .pointer-lines svg circle {
-		fill: #f00;
+		/*fill: #f00;*/
 	}
 
 
