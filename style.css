@@ -47,7 +47,7 @@ p, form, .success-message {
 	z-index: 0;
 	
 	position: absolute;
-	top: 150px;
+	top: 200px;
 	height: 100%;
 	width: 100%;
 }
@@ -176,7 +176,8 @@ p, form, .success-message {
 @media (min-width: 768px) {
 	#title2 img {
 		margin-left: 5%;
-		width: 35%;
+		width: 80%;
+		padding-bottom: 20px;
 	}
 }
 
