@@ -1,5 +1,6 @@
 html, body {
 	background-color: black;
+	background-image: url('img/space_cont.jpg');
 	font-family: 'Orbitron', sans-serif;
 	height: 100%;
 	color: white;
@@ -24,21 +25,36 @@ p, form, .success-message {
 	margin-left: 15px;
 }
 
-#content-wrapper {
-	background-position: center top;
-	background-size: 150% auto;
-	background-repeat: no-repeat;
-
+.fading-bg {
+	position: fixed;
 	height: 100%;
+	width: 100%;
+
+	background-image: linear-gradient(
+		to right,
+		transparent,
+		rgba(0,0,0,0.5) 20%, 
+		rgba(0,0,0,0.5) 60%,
+		transparent
+	);
 }
 
-#content-wrapper.space {
-	background-image: url('img/space.jpg');
+.eye {
+	background-image: url('img/eye_nobg.png');
+	background-repeat: no-repeat;
+	background-position: top right;
+	opacity: .5;
+	z-index: 0;
+	
+	position: absolute;
+	top: 150px;
+	height: 100%;
+	width: 100%;
 }
-
-#content-wrapper.spacemen {
-	background-image: url('img/spacemen.jpg');
-	background-position: 60% top;
+@media (max-width: 768px) {
+	.eye {
+		display: none;
+	}
 }
 
 @media (min-width: 768px) {
@@ -46,9 +62,6 @@ p, form, .success-message {
 		background-size: 100% auto;
 	}
 
-	#content-wrapper.spacemen {
-		background-position: center top;
-	}
 }
 
 .text-bg-wrapper {
@@ -58,17 +71,25 @@ p, form, .success-message {
 }
 
 .text-bg {
-	background-color: rgba(3,7,15,0.7);
+	background-color: rgba(3,7,15,0.4);
 }
 
 /* nav links */
 
 .nav-pointers a {
+	padding-top: 20px;
+	background-image: linear-gradient(
+		transparent,
+		rgba(0,0,0, 0.5) 20%,
+		transparent 60%
+	);
+
 	text-transform: uppercase;
 	display: block;
 	float: left;
 	margin-right: 50px;
 	font-size: 14px;
+	letter-spacing: 1px;
 }
 
 	.pointer-lines svg polyline {
