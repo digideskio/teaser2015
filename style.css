@@ -71,7 +71,12 @@ p, form, .success-message {
 }
 
 .text-bg {
-	background-color: rgba(3,7,15,0.4);
+	background: linear-gradient(
+		to right,
+		rgba(3,7,15,0.5),
+		rgba(3,7,15,0.5) 80%,
+		transparent
+	);
 }
 
 /* nav links */
