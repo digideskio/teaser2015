@@ -15,17 +15,28 @@
 
 		<script>
 		$(document).ready(function() {
-			$(".text-link").click(function(e) {
+			var showPage = function(target) {
 				$(".text-link.active").removeClass("active")
-				$(this).addClass("active")
+				$("#link-"+target).addClass("active")
 
-				var target = $(this).data("target")
 				$(".active-text").fadeOut(100, function() {
-						$("#"+target).fadeIn(1000)
-						$(".text-content").removeClass("active-text")
-						$("#"+target).addClass("active-text")
+					$("#text-"+target).fadeIn(1000)
+					$(".text-content").removeClass("active-text")
+					$("#text-"+target).addClass("active-text")
 				});
-				return false;
+			}
+
+			$(".vastaava-tuottaja").hide().fadeIn(1000);
+
+			if(window.location.hash)
+				target = window.location.hash.substr(1);
+			else
+				target = 'supernova';
+
+			showPage(target);
+			$(".text-link").click(function(e) {
+				var target = $(this).data("target")
+				showPage(target)
 			})
 
 			$("form").submit(function(e) {
@@ -61,7 +72,7 @@
 
 			<div id="pointer-wrapper" class="text-bg-wrapper">
 				<div class="nav-pointers col-sm-offset-1 col-sm-10">
-					<a href="#" data-target="text-speksi" class="active text-link">
+					<a href="#supernova" id="link-supernova" data-target="supernova" class="text-link">
 						Supernova
 						<div class="pointer-lines">
 							<svg width="150" height="50">
@@ -70,7 +81,7 @@
 							</svg>
 						</div>
 					</a>
-					<a href="/kauppa">
+					<a href="/kauppa" id="link-liput">
 						Liput
 						<div class="pointer-lines">
 							<svg width="90" height="50">
@@ -79,7 +90,7 @@
 							</svg>
 						</div>
 					</a>
-					<a href="#" data-target="text-mukaan" class="text-link">
+					<a href="#tekijat" id="link-tekijat" data-target="tekijat" class="text-link">
 						Tekijät
 						<div class="pointer-lines">
 							<svg width="120" height="70">
@@ -88,7 +99,7 @@
 							</svg>
 						</div>
 					</a>
-					<a href="#" data-target="text-sponsors" class="text-link">
+					<a href="#yhteistyo" id="link-yhteistyo" data-target="yhteistyo" class="text-link">
 						Yhteistyössä
 						<div class="pointer-lines">
 							<svg width="200" height="70">
@@ -97,7 +108,7 @@
 							</svg>
 						</div>
 					</a>
-					<a href="http://www.teekkarispeksi.fi/speksi" class="yhdistys">
+					<a href="http://www.teekkarispeksi.fi/speksi" id="link-yhdistys" class="yhdistys">
 						Yhdistys
 						<div class="pointer-lines">
 							<svg width="160" height="60" style="position: relative; top:-50px;">
@@ -109,7 +120,7 @@
 				</div>
 			</div>
 			<div id="text-container" class="col-sm-offset-1">
-				<div id="text-speksi" class="text-bg col-sm-8 col-md-7 text-content active-text">
+				<div id="text-supernova" class="text-bg col-sm-8 col-md-7 text-content active-text">
 					<h2>Supernova</h2>
 
 					<p>Teekkarispeksi meidät Ceres-asteroidille vuoteen 2404. Eletään asteroidiryntäyksen kulta-aikaa ja rikkauksia tavoittelevat mainarit uskovat kaiken olevan mahdollista avaruuden rajaseuduilla. Todellinen menestys on kuitenkin kaukaista, sillä kaivostoimintaa hallitsee kovin ottein Kajo-konsernin monopoli.
@@ -120,7 +131,7 @@
 
 					<p>Lippukauppa on jo auki! Osta lippusi verkkokaupasta vaikka heti.
 				</div>
-				<div id="text-mukaan" class="text-content text-bg col-sm-10 col-md-10">
+				<div id="text-tekijat" class="text-content text-bg col-sm-10 col-md-10">
 					<h2>Tekijät</h2>
 
 					<div class="tekijat">
@@ -421,7 +432,7 @@
 						</ul>
 					</div>
 				</div>
-				<div id="text-sponsors" class="text-content text-bg col-sm-8 col-md-7">
+				<div id="text-yhteistyo" class="text-content text-bg col-sm-8 col-md-7">
 					<h2>Yhteistyössä</h2>
 					
 					<div class="sponsors-images">
