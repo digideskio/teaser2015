@@ -46,14 +46,16 @@ h2 {
 
 .eye {
 	background-image: url('img/miehet_redbg_stars.png');
+	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: top right;
 	opacity: .7;
 	z-index: 0;
 	
 	position: absolute;
-	top: 100px;
-	height: 100%;
+	top: 200px;
+	right: 10%;
+	height: 60%;
 	width: 100%;
 }
 @media (max-width: 768px) {
