@@ -7,7 +7,7 @@ html, body {
 	font-size: 14px;
 }
 
-a, a:hover {
+a, a:hover, a:focus {
 	color: white;
 	text-decoration: none;
 }
@@ -126,7 +126,7 @@ h2 {
 
 /* nav hover */
 
-.nav-pointers a:hover {
+.nav-pointers a:hover, .nav-pointers a:focus {
 	color: #ff6533;
 }
 	.nav-pointers a:hover .pointer-lines svg polyline {
@@ -176,9 +176,20 @@ h2 {
 	line-height: 20px;
 }
 
+
 .text-content {
 	display: none;
 }
+	.text-content a {
+		text-decoration: none;
+		border-bottom: 1px solid #ff9965;
+		color: #ff9965;
+		transition: all 0.1s ease-in-out;
+	}
+	.text-content a:hover {
+		color: #fff;
+	}
+
 .active-text {
 	display: block;
 }
