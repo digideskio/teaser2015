@@ -10,6 +10,7 @@ html, body {
 a, a:hover, a:focus {
 	color: white;
 	text-decoration: none;
+	outline: 0;
 }
 
 p, form, .success-message {
@@ -253,6 +254,37 @@ form textarea {
   background-color: #ff5e28;
   border-color: #ff5e28;
 }
+
+.tekijat {
+	font-size: 10px;
+	line-height: 14px;
+}
+	@media (min-width: 400px) {
+		.tekijat {
+			-webkit-column-count: 2;
+			-moz-column-count: 2;
+			column-count: 2;
+		}
+	}
+	@media (min-width: 768px) {
+		.tekijat {
+			-webkit-column-count: 3;
+			-moz-column-count: 3;
+			column-count: 3;
+		}
+	}
+
+	.tekijat h4 {
+		margin-top: 0;
+	}
+	.tekijat ul {
+		margin-bottom: 20px;
+		list-style: none;
+		padding-left: 10px;
+	}
+	.tekijat li {
+
+	}
 
 .sponsors-images {
 	text-align: center;
