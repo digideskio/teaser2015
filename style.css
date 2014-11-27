@@ -4,7 +4,7 @@ html, body {
 	font-family: 'Orbitron', sans-serif;
 	height: 100%;
 	color: white;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 a, a:hover {
@@ -23,7 +23,6 @@ p, form, .success-message {
 h2 {
 	border-bottom: 1px solid #ff6533;
 	margin-bottom: 20px;
-	margin-right: 50px;
 }
 
 #pointer-wrapper {
@@ -100,7 +99,7 @@ h2 {
 	display: block;
 	float: left;
 	margin-right: 50px;
-	font-size: 14px;
+	font-size: 16px;
 	letter-spacing: 1px;
 }
 
@@ -167,13 +166,13 @@ h2 {
 
 #text-container {
 	padding-left: 30px;
-	padding-right: 0;
+	padding-right: 30px;
 	padding-top: 0;
 	padding-bottom: 30px;
 
 	word-spacing: 0.2em;
 	letter-spacing: 0.05em;
-	line-height: 1.5em;
+	line-height: 20px;
 }
 
 .text-content {
