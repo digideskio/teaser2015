@@ -1,6 +1,6 @@
 html, body {
-	background-color: black;
-	background-image: url('img/punaiset_tahdet.jpg');
+	background-color: #330000;
+	/*background-image: url('img/punaiset_tahdet.jpg');*/
 	font-family: 'Orbitron', sans-serif;
 	height: 100%;
 	color: white;
@@ -45,14 +45,14 @@ h2 {
 }
 
 .eye {
-	background-image: url('img/eye_redbg.png');
+	background-image: url('img/miehet_redbg_stars.png');
 	background-repeat: no-repeat;
 	background-position: top right;
-	opacity: .5;
+	opacity: .7;
 	z-index: 0;
 	
 	position: absolute;
-	top: 200px;
+	top: 100px;
 	height: 100%;
 	width: 100%;
 }
