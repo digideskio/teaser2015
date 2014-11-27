@@ -18,6 +18,9 @@ img {
 
 p, form, .success-message {
 	margin-bottom: 20px;
+	font-family: 'Aldrich', sans-serif;
+	letter-spacing: 0;
+	font-size: 14px;
 }
 
 h2 {
