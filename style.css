@@ -10,6 +10,7 @@ html, body {
 a, a:hover, a:focus {
 	color: white;
 	text-decoration: none;
+	outline: 0;
 }
 
 p, form, .success-message {
