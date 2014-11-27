@@ -12,10 +12,6 @@ a, a:hover, a:focus {
 	text-decoration: none;
 }
 
-img {
-	width: 100%;
-}
-
 p, form, .success-message {
 	margin-bottom: 20px;
 }
@@ -98,7 +94,6 @@ h2 {
 	text-transform: uppercase;
 	display: block;
 	float: left;
-	margin-right: 50px;
 	font-size: 16px;
 	letter-spacing: 1px;
 }
@@ -257,4 +252,32 @@ form textarea {
 .btn-red[disabled] .btn-red.active {
   background-color: #ff5e28;
   border-color: #ff5e28;
+}
+
+.sponsors-images {
+	text-align: center;
+	margin-bottom: 100px;
+}
+.sponsors-images img {
+	padding: 10px 30px;
+}
+.vastaava-tuottaja {
+	width: 100%;
+	clear: both;
+	text-align: center;
+	margin-top: 20px;
+}
+
+h4 {
+	margin-top: 50px;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #fff;
+}
+
+h5 {
+	text-transform: uppercase;
+	font-size: 10px;
+	color: #966;
+	text-shadow: #600 -1px -1px;
 }
