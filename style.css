@@ -12,10 +12,6 @@ a, a:hover, a:focus {
 	text-decoration: none;
 }
 
-img {
-	width: 100%;
-}
-
 p, form, .success-message {
 	margin-bottom: 20px;
 }
@@ -259,4 +255,17 @@ form textarea {
 .btn-red[disabled] .btn-red.active {
   background-color: #ff5e28;
   border-color: #ff5e28;
+}
+
+.vastaava-tuottaja {
+	margin-top: 20px;
+	width: 100%;
+	clear: both;
+	text-align: center;
+}
+.vastaava-tuottaja h5 {
+	text-transform: uppercase;
+	font-size: 10px;
+	color: #966;
+	text-shadow: #300 -2px -2px;
 }
