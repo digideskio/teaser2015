@@ -1,6 +1,6 @@
 html, body {
 	background-color: black;
-	background-image: url('img/space_cont.jpg');
+	background-image: url('img/punaiset_tahdet.jpg');
 	font-family: 'Orbitron', sans-serif;
 	height: 100%;
 	color: white;
@@ -39,14 +39,14 @@ h2 {
 	background-image: linear-gradient(
 		to right,
 		transparent,
-		rgba(0,0,0,0.5) 20%, 
-		rgba(0,0,0,0.5) 60%,
+		rgba(30,0,0,0.5) 20%, 
+		rgba(30,0,0,0.5) 60%,
 		transparent
 	);
 }
 
 .eye {
-	background-image: url('img/eye_nobg.png');
+	background-image: url('img/eye_redbg.png');
 	background-repeat: no-repeat;
 	background-position: top right;
 	opacity: .5;
@@ -79,8 +79,9 @@ h2 {
 .text-bg {
 	background: linear-gradient(
 		to right,
-		rgba(3,7,15,0.5),
-		rgba(3,7,15,0.5) 80%,
+		transparent,
+		rgba(30, 0, 0, 0.5) 10%,
+		rgba(30, 0, 0, 0.5) 80%,
 		transparent
 	);
 }
@@ -91,7 +92,7 @@ h2 {
 	padding-top: 20px;
 	background-image: linear-gradient(
 		transparent,
-		rgba(0,0,0, 0.5) 20%,
+		rgba(50,0,0, 0.5) 20%,
 		transparent 60%
 	);
 
@@ -103,6 +104,9 @@ h2 {
 	letter-spacing: 1px;
 }
 
+	.nav-pointers * {
+		transition: all 0.2s ease-in-out;
+	}
 	.pointer-lines svg polyline {
 		fill: none;
 		stroke: #fff;
