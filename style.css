@@ -96,7 +96,6 @@ h2 {
 	text-transform: uppercase;
 	display: block;
 	float: left;
-	margin-right: 50px;
 	font-size: 16px;
 	letter-spacing: 1px;
 }
@@ -257,15 +256,30 @@ form textarea {
   border-color: #ff5e28;
 }
 
+.sponsors-images {
+	text-align: center;
+	margin-bottom: 100px;
+}
+.sponsors-images img {
+	padding: 10px 30px;
+}
 .vastaava-tuottaja {
-	margin-top: 20px;
 	width: 100%;
 	clear: both;
 	text-align: center;
+	margin-top: 20px;
 }
-.vastaava-tuottaja h5 {
+
+h4 {
+	margin-top: 50px;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: #fff;
+}
+
+h5 {
 	text-transform: uppercase;
 	font-size: 10px;
 	color: #966;
-	text-shadow: #300 -2px -2px;
+	text-shadow: #600 -1px -1px;
 }
