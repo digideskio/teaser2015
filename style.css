@@ -1,9 +1,9 @@
 html, body {
-	background-color: black;
+	background-color: #330000;
 	font-family: 'Orbitron', sans-serif;
 	height: 100%;
 	color: white;
-	font-size: 16px;
+	font-size: 12px;
 }
 
 a, a:hover {
@@ -37,7 +37,7 @@ p, form, .success-message {
 }
 
 #content-wrapper.spacemen {
-	background-image: url('img/spacemen.jpg');
+	background-image: url('img/newbg.png');
 	background-position: 60% top;
 }
 
@@ -58,7 +58,7 @@ p, form, .success-message {
 }
 
 .text-bg {
-	background-color: rgba(3,7,15,0.7);
+	background-color: rgba(51,0,0,0.7);
 }
 
 /* nav links */
@@ -68,7 +68,7 @@ p, form, .success-message {
 	display: block;
 	float: left;
 	margin-right: 50px;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 	.pointer-lines svg polyline {
@@ -83,7 +83,7 @@ p, form, .success-message {
 
 	.text-link.yhdistys {
 		color: #f4602f;
-		font-size: 12px;
+		font-size: 14px;
 	}
 
 #pointer-tule-tanne {
