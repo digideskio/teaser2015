@@ -310,6 +310,10 @@ form textarea {
 		padding: 0;
 	}
 }
+/* Estää tehon logon päätymisen Capgeminin logon viereen */
+#gemini-container {
+	width: 100%;
+}
 
 h4 {
 	margin-top: 50px;
