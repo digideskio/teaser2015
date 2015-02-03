@@ -296,11 +296,17 @@ form textarea {
 	padding: 20px 30px;
 	max-width: 100%;
 }
+.sponsors-images a {
+	border-bottom: none;
+}
 .kumppanit {
 	/*width: 100%;
 	clear: both;*/
 	text-align: center;
 	padding: 30px 0 30px 0;
+}
+.kumppanit-bottom {
+	padding-top: 0;
 }
 .kumppanit img {
 	padding: 0 10px 0 10px;
